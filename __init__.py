@@ -73,7 +73,6 @@ keydict = {"space": pygame.K_SPACE, "esc": pygame.K_ESCAPE, "up": pygame.K_UP, "
            "num9": pygame.K_KP9}
 screen = ""
 
-
 class newTextBox(pygame.sprite.Sprite):
     def __init__(self, text, xpos, ypos, width, case, maxLength, fontSize):
         pygame.sprite.Sprite.__init__(self)
@@ -262,26 +261,6 @@ def showSprite(sprite):
     spriteGroup.add(sprite)
     if screenRefresh:
         updateDisplay()
-
-
-def makeSprite(filename, frames=1, altDims = None):
-    thisSprite = newSprite(filename, frames, altDims)
-    return thisSprite
-
-
-def addSpriteImage(sprite, image):
-    sprite.addImage(image)
-
-
-def changeSpriteImage(sprite, index):
-    sprite.changeImage(index)
-
-
-def nextSpriteImage(sprite):
-    sprite.currentImage += 1
-    if sprite.currentImage > len(sprite.images) - 1:
-        sprite.currentImage = 0
-    sprite.changeImage(sprite.currentImage)
 
 
 def prevSpriteImage(sprite):

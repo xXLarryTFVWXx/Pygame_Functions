@@ -1,6 +1,17 @@
 import os, pygame
+from typing import Any, Tuple
+import typing
+
+from pygame.sprite import AbstractGroup
 
 screenRefresh = False
+
+def get_mouse(button:int=-1) -> Tuple[Tuple[int, int], bool] | Tuple[int, int]:
+    mouse_pos = pygame.mouse.get_pos()
+    if button == -1:
+        return mouse_pos
+    elif button < 3:
+        return 
 
 class Window:
     def __init__(self, sizex, sizey, xpos=None, ypos=None, bg_color="black", fullscreen=False):
@@ -127,4 +138,11 @@ def screenSize(sizex, sizey, xpos=None, ypos=None, fullscreen=False):
     pygame.display.update()
     return screen
 
-
+class Box(pygame.sprite.Sprite):
+    def __init__(self, rectangle: pygame.Rect, colors: dict, text=None, *groups: AbstractGroup, **config) -> None:
+        super().__init__(*groups)
+        self.rect = rectangle
+        for setting in config.keys():
+            if 
+    def update(self, *args: Any, **kwargs: Any) -> None:
+        return super().update(*args, **kwargs)
